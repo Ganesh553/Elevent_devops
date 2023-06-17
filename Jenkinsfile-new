@@ -24,8 +24,8 @@ pipeline {
 
             steps {
                // update your tomcat server ip accordingly in below command
-		    echo $pwd
-              //sh "scp target/maven-web-application.war  ec2-user@3.26.217.173:/opt/tomcat9/webapps/"
+		    echo "Build is sucessfull"
+              sh "scp target/maven-web-application.war  ec2-user@3.26.217.173:/opt/tomcat9/webapps/"
                     
             }
         }
