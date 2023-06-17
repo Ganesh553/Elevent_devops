@@ -23,10 +23,10 @@ pipeline {
         stage ('deploy') {
 
             steps {
-               // update your tomcat server ip accordingly in below command
-		    echo "Build is sucessfull"
-              sh "scp target/maven-web-application.war  ec2-user@3.26.217.173:/opt/tomcat9/webapps/"
-                    
+              sshagent(['Tomcat']) {
+   			sh "scp -o target/maven-web-application.war  ec2-user@3.26.217.173:/opt/tomcat9/webapps/"
+		}
+		    echo "Build is sucessfull"         
             }
         }
 
