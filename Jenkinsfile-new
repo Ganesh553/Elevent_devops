@@ -23,7 +23,8 @@ pipeline {
         stage ('deploy') {
 
             steps {
-              sshagent(['Tomcat']) {
+              //sshagent(['Tomcat']) {
+		sshagent(['f883cc08-4364-471e-bd3c-f29ccb59882b']) {
    			sh "scp -o target/maven-web-application.war  ec2-user@3.26.217.173:/opt/tomcat9/webapps/"
 		}
 		    echo "Build is sucessfull"         
