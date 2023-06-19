@@ -23,7 +23,7 @@ pipeline {
         stage ('deploy') {
 
             steps {
-		     sshagent (['f883cc08-4364-471e-bd3c-f29ccb59882b']) {
+		     sshagent (['slave_tomcate_correcy']) {
 			    sh "scp -o StrictHostKeyChecking=no target/maven-web-application.war  ec2-user@3.26.217.173:/opt/tomcat9/webapps/"
 			}
 		    echo "Build is sucessfull"         
